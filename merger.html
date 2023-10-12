@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html> <head> <title>Merger</title><style>
+    .flex-container {
+      display: flex;  flex-direction:row;
+      background-color: rgb(189, 235, 22);
+  }
+
+.flex-container > div {  /*div children of the flex container*/
+  background-color: #2c1cde; 
+  margin: 10px;  padding: 20px;  font-size: 30px;
+}
+
+/* Responsive layout */
+@media (max-width: 600px) { 
+	 .flex-container{
+		 flex-direction:column;
+		 background-color: green;
+	  }
+	}
+</style></head>
+
+<body>
+    <header><h2>TejaKumar Muppala Builds a merger</h2></header>
+    
+		<div class="flex-container" id="target">
+		  <div class="merger">row item 1</div>   
+		  <div class="merger">row item 2</div>  
+		  <div class="merger">row item 3</div>  
+		</div>
+   
+    <label for="Element">Type something: <br></label>
+    <input type="text" id="textinput" placeholder="text Enter" name="Element" value="">
+
+    <button onclick="addEnd()">Add end</button>
+    <button onclick="addFront()">Add front</button>
+    <button onclick="remove()">Remove</button>
+  
+</body>
+<script>
+
+	function remove() {
+        let mergerItems = document.getElementsByClassName("merger");
+        let mergerlength = mergerItems.length;
+        if (mergerlength > 0) {
+            let middleIndex = Math.floor(mergerlength / 2);
+            mergerItems[middleIndex].remove();
+        }
+        }
+        function addFront() {
+        let getelement = document.createElement("div");
+        let inputText = document.getElementById('textinput').value;
+        getelement.innerHTML = inputText;
+        getelement.className = "merger";
+
+        let container = document.getElementById('target');
+        container.insertBefore(getelement, container.firstChild);
+        }
+
+        function addEnd() {
+        let getelement = document.createElement("div");
+        let inputText = document.getElementById('textinput').value;
+        getelement.innerHTML = inputText;
+        getelement.className = "merger";
+
+        let container = document.getElementById('target');
+        container.appendChild(getelement);
+        }
+
+</script>
+</html>	

@@ -34,9 +34,25 @@
     <button onclick="addEnd()">Add end</button>
     <button onclick="addFront()">Add front</button>
     <button onclick="remove()">Remove</button>
+    <button onclick="swap()">swap</button>
   
 </body>
 <script>
+    function swap() {
+        let mergerItems = document.getElementsByClassName("merger");
+        let length = mergerItems.length-1;
+        first=Math.floor((Math.random() * length) + 0)
+        second=Math.floor((Math.random() * length) + 0)
+        if(first==second){
+            second=Math.floor((Math.random() * length) + 0)
+        }
+        console.log("first",first);
+        console.log("second",second);
+        const div1 = mergerItems[first].innerHTML
+        const div2 = mergerItems[second].innerHTML
+        mergerItems[first].innerHTML=div2;
+        mergerItems[second].innerHTML=div1;
+    }
 
 	function remove() {
         let mergerItems = document.getElementsByClassName("merger");

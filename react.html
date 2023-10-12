@@ -26,11 +26,10 @@
   }
 
   function startTime(){
-    let rand=Math.floor((Math.random() * 10) + 2)
-    for (let a = 0; a < rand; a++) {
+    for (let a = 0; a < 9; a++) {
         setTimeout(() => {
               document.getElementById('counter').innerHTML = a;
-            }, (rand - a) * 1000); 
+            }, (8 - a) * 1000); 
     }
     setTimeout(() => {
   if (reactTime == undefined) {
